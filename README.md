@@ -4,4 +4,6 @@
 
 #### Video Demo: <URL HERE>
 
-#### Description: Screen-ON Makes Programs RUN is an all-in-one ITTT (If This Then That) solution for automating your screen being on to running whatever you want!
+#### Description:
+
+Screen-ON Makes Programs RUN is an all-in-one ITTT (If This Then That) solution for automating your screen being on to running whatever you want!
