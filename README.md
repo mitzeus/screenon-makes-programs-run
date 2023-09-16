@@ -1,4 +1,4 @@
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/logo.png?raw=true)
+![alt text](https://github.com/wootkennziz/cs50-final-project/blob/main/logo.png?raw=true)
 
 # YOUR PROJECT TITLE
 
