@@ -1,6 +1,6 @@
 ![alt text](https://github.com/wootkennziz/cs50-final-project/blob/main/logo.png?raw=true)
 
-# YOUR PROJECT TITLE
+# Screen-ON Makes Programs RUN
 
 #### Video Demo: <URL HERE>
 
