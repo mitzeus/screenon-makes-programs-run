@@ -12,7 +12,7 @@ def displayError(error):
     exit()
 
 if len(sys.argv) < 2:
-    displayError("Usage: python script.py --search|--config|--submit|--remove")
+    displayError("Usage: python script.py --search|--config|--submit")
 
 # Fetching monitors and counting them
 text = subprocess.check_output('cmd /c "WMIC /NameSpace:\\\\Root\\WMI Path WmiMonitorID Get /format:value"', shell=True, text=True)
@@ -78,6 +78,8 @@ elif sys.argv[1] == "--config":
     elif addFlags.lower() in ["n", "no", "nope"]:
         print("No arguments will be added.")
         flags = ""
+    else:
+        displayError(f"Could not interpret user answer \"{addFlags}\"")
     
 
     # initialize testing of program path
@@ -178,6 +180,8 @@ elif sys.argv[1] == "--submit":
 
     elif submitAnswer.lower() not in ["n", "no", "nope"]:
         displayError("Canceled Submission.")
+    else:
+        displayError(f"Could not interpret user answer \"{submitAnswer}\"")
 
 elif sys.argv[1] == "--remove":
     pass
