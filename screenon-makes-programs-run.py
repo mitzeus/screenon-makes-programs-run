@@ -176,7 +176,7 @@ elif sys.argv[1] == "--submit":
         except:
             displayError("❌ Could not create batch file in windows autorun folder, please make sure you have permission to write to C:\\ drive")
 
-        
+        print("\n\n✅ Done!")
 
     elif submitAnswer.lower() not in ["n", "no", "nope"]:
         displayError("Canceled Submission.")
