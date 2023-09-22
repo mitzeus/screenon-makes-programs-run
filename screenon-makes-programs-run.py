@@ -38,6 +38,7 @@ if sys.argv[1] == "--search":
     print(f"\n{amountOfMonitorsTotal} screens were found connected to this system\n")
     for i in range(len(finalMonitorArray)):
         print(f"{i + 1}: {finalMonitorArray[i][1][21:28]}, from year: {finalMonitorArray[i][8][18:]}")
+        print(f"{i + 1}: {finalMonitorArray[i][1]}, from year: {finalMonitorArray[i][8][18:]}") # remove!
 
     print("\nTIP: In order to know which screen is which you can try to turn of or disconnect one or more screens and run this command again.")
 
