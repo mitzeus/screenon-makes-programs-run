@@ -40,6 +40,10 @@ Takes a boolean value (y/n) to require/not require a screen to be the only one t
 
 The `--submit` argument will create all necessary files to run the SONMPRUN script at PC startup with the configuration generated in `--config`, copying the configuration and script to a script folder located at "C:\custom-scripts\screenon-makes-programs-run" and creating a batch file in windows startup directory to execute the program when user logs in to the system.
 
+### --remove:
+
+The `--remove` argument will remove all "active" or "submitted" files (with `--submit`) for the SONMPRUN script.
+
 ##
 
 With the use of a WMIC windows command-prompt script SONMPRUN can get the WmiMonitorID information into an unorganized string form and thereafter structures the data to be able to handle it appropriately in all steps. This also allows the script to further use and display appropriate data about every screen if this functionality is implemented in the future.
