@@ -95,7 +95,11 @@ If the problem is not resolved after reinstall, you may experience issues becaus
 
 ## Removing
 
-To remove this script from your computer, you need to delete the following:
+To remove this script from your computer, you need to either run the following command in your downloaded script directory:
+
+    python screenon-makes-programs-run.py --remove
+
+Or delete the following:
 
 The folder:
 

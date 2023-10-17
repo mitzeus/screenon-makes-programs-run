@@ -8,11 +8,11 @@ monitorMustBeAlone = False
 
 def displayError(error):
     print(error)
-    input("Press any key to exit...")
+    # input("Press any key to exit...")
     exit()
 
 if len(sys.argv) < 2:
-    displayError("Usage: python script.py --search|--config|--submit")
+    displayError("Usage: python screenon-makes-programs-run.py --search|--config|--submit|--remove")
 
 # Fetching monitors and counting them
 text = subprocess.check_output('cmd /c "WMIC /NameSpace:\\\\Root\\WMI Path WmiMonitorID Get /format:value"', shell=True, text=True)
@@ -38,7 +38,7 @@ if sys.argv[1] == "--search":
     print(f"\n{amountOfMonitorsTotal} screens were found connected to this system\n")
     for i in range(len(finalMonitorArray)):
         print(f"{i + 1}: {finalMonitorArray[i][1][21:28]}, from year: {finalMonitorArray[i][8][18:]}")
-        print(f"{i + 1}: {finalMonitorArray[i][1]}, from year: {finalMonitorArray[i][8][18:]}") # remove!
+        # print(f"{i + 1}: {finalMonitorArray[i][1]}, from year: {finalMonitorArray[i][8][18:]}") # remove!
 
     print("\nTIP: In order to know which screen is which you can try to turn of or disconnect one or more screens and run this command again.")
 
@@ -120,7 +120,7 @@ elif sys.argv[1] == "--config":
         configDoc.write(configFile)
 
     # done
-    print("You are now configured! Please run \"python script.exe --submit\" to add it into Windows auto-startup")
+    print("You are now configured! Please run \"python screenon-makes-programs-run.py --submit\" to add it into Windows auto-startup")
 
 
 elif sys.argv[1] == "--submit":
@@ -136,7 +136,7 @@ elif sys.argv[1] == "--submit":
         print(f"Chosen Program Arguments: {submitJsonData['chosenArgs']}")
         print(f"Must Monitor be the only enabled screen in order to trigger a reaction?: {submitJsonData['mustMonitorBeAlone']}")
     except KeyError:
-        displayError("Oops! Something went wrong, are you sure you have ran \"python script.py --config\" yet?")
+        displayError("Oops! Something went wrong, are you sure you have ran \"python screenon-makes-programs-run.py --config\" yet?")
 
 
     submitAnswer = input("\nType y/n: ")
@@ -185,7 +185,36 @@ elif sys.argv[1] == "--submit":
         displayError(f"Could not interpret user answer \"{submitAnswer}\"")
 
 elif sys.argv[1] == "--remove":
-    pass
+    removeAll = input("Remove SONMPRUN script and all it's configured files? (y/n): ")
+    print("\n")
+
+    if removeAll.lower() in ["y", "yes", "yeah", "sure"]:
+        # removing script
+        if os.path.exists("C:/custom-scripts/screenon-makes-programs-run/"):
+                try:
+                    shutil.rmtree("C:/custom-scripts/screenon-makes-programs-run/")
+                    print("✅ Successfully removed script directory")
+                except:
+                    displayError("❌ Could not remove script directory, please make sure you have permission to write to your C:\\ drive")
+        else:
+            print("✅ No script directory was found")
+
+        # removing startup
+        fullPath = f"C:\\Users\\{os.getenv('USERNAME')}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\screenon-makes-programs-run.bat"
+        if os.path.exists(fullPath):
+                try:
+                    os.remove(fullPath)
+                    print("✅ Successfully removed startup script")
+                except:
+                    displayError("❌ Could not remove startup script, please make sure you have permission to write to your C:\\ drive")
+        else:
+            print("✅ No startup script was found")
+
+
+        print("\n")
+        print("✅ Successfully removed all active configurations of SONMPRUN!")
+    else:
+        displayError("❌ Cancelled.")
 
 elif sys.argv[1] == "--run":
 
