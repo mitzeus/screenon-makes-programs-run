@@ -278,7 +278,7 @@ elif sys.argv[1] == "--remove":
 elif sys.argv[1] == "--run":
 
     # import settings
-    fileConfig = open("C:\custom-scripts\screenon-makes-programs-run\config.json")
+    fileConfig = open("C:\\custom-scripts\\screenon-makes-programs-run\\config.json")
     config = json.load(fileConfig)
 
     # print(finalMonitorArray)
