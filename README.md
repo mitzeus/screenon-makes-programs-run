@@ -69,6 +69,8 @@ Open a Terminal window in the directory of the `screen-on-makes-programs-run.py`
 
 Before running the following command, make sure you have the latest version of Python installed on your PC first! (download at https://www.python.org/downloads/)
 
+AS OF 2025, WMIC IS NOW DEPRECATED IN FAVOR OF POWERSHELL AND NEED TO BE MANUALLY ENABLED IN CERTAIN VERSIONS OF Windows 10 AND Windows 11
+
 Then, in your Terminal run:
 
     python screenon-makes-programs-run.py
