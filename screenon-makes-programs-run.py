@@ -180,7 +180,7 @@ elif sys.argv[1] == "--submit":
     submitAnswer = input("\nType y/n: ")
     if submitAnswer.lower() in ["y", "yes", "yeah", "sure"]:
         fileConfig.close()
-        username = os.getenv("USERNAME")
+        username = os.getenv("USERPROFILE")
         currentDirectory = os.getcwd()
 
         print(f"Applying for user: {username}")
@@ -220,7 +220,7 @@ elif sys.argv[1] == "--submit":
             )
 
         try:
-            fullPath = f"C:\\Users\\{username}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\screenon-makes-programs-run.bat"
+            fullPath = f"{username}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\screenon-makes-programs-run.bat"
             batScript = open(rf"{fullPath}", "w+")
             batScript.write(
                 "@ECHO OFF\n python C:\\custom-scripts\\screenon-makes-programs-run\\script.py --run"
